@@ -1,8 +1,7 @@
-class BuildingRecord < ActiveRecord::Base
-  validates :address, presence: true
-  validates :city, presence: true
-  validates :postal_code, presence: true
-  validates :state, presence: true, inclusion: [
+<%= simple_form_for @building_record do |f| %>
+  <%= f.input :address %>
+  <%= f.input :city %>
+  <%= f.input :state, label: 'State', collection: [
     'AL', 'AK', 'AZ', 'AR', 'CA', 'CO', 'CT',
     'DE', 'FL', 'GA', 'HI', 'ID', 'IL', 'IN',
     'IA', 'KS', 'KY', 'LA', 'ME', 'MD', 'MA',
@@ -11,5 +10,9 @@ class BuildingRecord < ActiveRecord::Base
     'OK', 'OR', 'PA', 'RI', 'SC', 'SD', 'TN',
     'TX', 'UT', 'VT', 'VA', 'WA', 'WV', 'WI',
     'WY'
-  ]
-end
+    ] %>
+  <%= f.input :postal_code, label: 'Postal Code' %>
+  <%= f.input :description %>
+
+  <%= f.submit 'Submit' %>
+<%- end -%>
