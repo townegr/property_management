@@ -3,6 +3,10 @@ class OwnersController < ApplicationController
     @owner = Owner.new
   end
 
+  def index
+    @owners = Owner.all
+  end
+
   def create
     @owner = Owner.new(owner_params)
     if @owner.save
@@ -11,6 +15,16 @@ class OwnersController < ApplicationController
     else
       render 'new'
     end
+  end
+
+  def show
+    @owner = Owner.find(params[:id])
+  end
+
+  def destroy
+    @owner = Owner.find(params[:id])
+    @owner.destroy!
+    redirect_to new_owner_path, notice: 'Add a new owner?'
   end
 
   private

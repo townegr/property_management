@@ -1,7 +1,7 @@
 class BuildingRecordsController < ApplicationController
 
   def index
-    @building_record = BuildingRecord.all
+    @building_records = BuildingRecord.all
   end
 
   def new
@@ -20,6 +20,12 @@ class BuildingRecordsController < ApplicationController
 
   def show
     @building_record = BuildingRecord.find(params[:id])
+  end
+
+  def destroy
+    @building_record = BuildingRecord.find(params[:id])
+    @building_record.delete
+    redirect_to owners_path
   end
 
   private

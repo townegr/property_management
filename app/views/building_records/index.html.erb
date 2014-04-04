@@ -1,0 +1,7 @@
+<% @building_records.each do |building| %>
+  <div>
+    <p><strong><%= building.address %></strong>
+    <%= link_to building.address, building %>
+    <%= link_to "Destroy #{building.address}", building, method: :delete %>
+  </div>
+<% end %>

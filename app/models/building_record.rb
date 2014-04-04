@@ -1,4 +1,5 @@
 class BuildingRecord < ActiveRecord::Base
+  belongs_to :owner
 
   validates :address, presence: true
   validates :city, presence: true

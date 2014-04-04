@@ -13,4 +13,6 @@ describe BuildingRecord do
 
   it { should have_valid(:postal_code).when('02143') }
   it { should_not have_valid(:postal_code).when(*blank_values) }
+
+  it { should belong_to(:owner) }
 end
