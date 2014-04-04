@@ -1,4 +1,5 @@
 class BuildingRecord < ActiveRecord::Base
+
   validates :address, presence: true
   validates :city, presence: true
   validates :postal_code, presence: true

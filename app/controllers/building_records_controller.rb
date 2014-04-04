@@ -22,8 +22,7 @@ class BuildingRecordsController < ApplicationController
     @building_record = BuildingRecord.find(params[:id])
   end
 
-  protected
-
+  private
   def building_record_params
     params.require(:building_record).permit(
       :address,

@@ -14,7 +14,7 @@ feature 'record a building', %Q{
   # If I do not specify all of the required information in the required formats, the building is not recorded and I am presented with errors
   # Upon successfully creating a building, I am redirected so that I can record another building.
 
-  scenario 'an associate records a valid building entry' do
+  scenario 'create a building record' do
     prev_count = BuildingRecord.count
     visit new_building_record_path
 
@@ -29,7 +29,7 @@ feature 'record a building', %Q{
     expect(BuildingRecord.count).to eq(prev_count + 1)
   end
 
-  scenario 'an associate records an invalid building entry' do
+  scenario 'create an invalid building entry' do
     prev_count = BuildingRecord.count
     visit new_building_record_path
     click_button 'Submit'
